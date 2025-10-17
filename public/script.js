@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000";
+const API_URL = window.location.origin;
 console.log("API base URL:", API_URL);
         let html5QrcodeScanner;
         let isProcessing = false;
@@ -225,4 +225,5 @@ console.log("API base URL:", API_URL);
             updateCheckinCounter();
 
         });
+
 
