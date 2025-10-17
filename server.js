@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const { google } = require('googleapis');
-const creds = JSON.PARSE(process.env.GOOGLE_CREDS);
+const creds = JSON.parse(process.env.GOOGLE_CREDS);
 const cors = require('cors');
 
 const app = express();
@@ -297,26 +297,5 @@ app.get('/api/guests', async (req, res) => {
   }
 });
 
-// Start server
-app.listen(PORT, async () => {
-  console.log(`\n========================================`);
-  console.log(`🎉 Wedding Check-in Server`);
-  console.log(`========================================`);
-  console.log(`Server: http://localhost:${PORT}`);
-  console.log(`Spreadsheet ID: ${SPREADSHEET_ID}`);
-  console.log(`========================================\n`);
+module.exports = app;
   
-  // Initialize Google Sheets on startup
-  const initialized = await initGoogleSheets();
-  
-  if (!initialized) {
-    console.log('⚠️  WARNING: Gagal menginisialisasi Google Sheets');
-    console.log('   Pastikan:');
-    console.log('   1. File creds.json ada dan valid');
-    console.log('   2. Service account sudah di-share ke spreadsheet');
-    console.log('   3. Spreadsheet ID benar\n');
-  } else {
-    console.log('✓ Server siap digunakan!\n');
-  }
-
-});
