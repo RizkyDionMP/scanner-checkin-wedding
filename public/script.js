@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000';
+console.log("API base URL:", API_URL);
         let html5QrcodeScanner;
         let isProcessing = false;
         let sessionCheckins = 0; // Counter untuk session ini
@@ -222,4 +222,5 @@ const API_URL = 'http://localhost:3000';
             // Reset counter untuk session baru
             sessionCheckins = 0;
             updateCheckinCounter();
+
         });
