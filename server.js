@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const { google } = require('googleapis');
-const creds = require('./creds.json');
+const creds = JSON.PARSE(process.env.GOOGLE_CREDS);
 const cors = require('cors');
 
 const app = express();
@@ -318,4 +318,5 @@ app.listen(PORT, async () => {
   } else {
     console.log('✓ Server siap digunakan!\n');
   }
+
 });
